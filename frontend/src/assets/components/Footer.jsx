@@ -34,7 +34,7 @@ export default function Footer() {
 
         console.log('form submitted', data);
 
-        fetch('http://localhost:5001/api/v1/send-sms', {
+        fetch('https://goa-mma.onrender.com/api/v1/send-sms', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

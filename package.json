@@ -4,7 +4,7 @@
   "main": "backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production node backend/server.js",
+    "start": "cross-env NODE_ENV=production node backend/server.js",
     "build": "npm i && npm i --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],

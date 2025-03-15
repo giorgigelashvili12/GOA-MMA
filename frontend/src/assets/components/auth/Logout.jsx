@@ -6,7 +6,7 @@ export default function Logout() {
 
     const logout = async () => {
         try {
-            const res = await fetch('http://localhost:5001/api/v1/auth/logout', {
+            const res = await fetch('https://goa-mma.onrender.com/api/v1/auth/logout', {
                 method: 'POST'
             });
 

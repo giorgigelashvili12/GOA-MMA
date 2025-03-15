@@ -11,7 +11,7 @@ export default function Signup() {
         e.preventDefault();
         setError('')
         try {
-            const res = await fetch('http://localhost:5001/api/v1/auth/signup', {
+            const res = await fetch('https://goa-mma.onrender.com/api/v1/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
