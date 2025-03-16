@@ -12,10 +12,6 @@ const signup = async (req, res) => {
             return res.status(400).json({msg: 'User with this username already exists'})
         }
 
-        // if(!/^\+?[0-9\s]{9,15}$/.test(phone)) {
-        //     return res.status(401).json({msg: 'Please eneter a valid number, given one is not valid'})
-        // }
-
         const hashed = bcrypt.hashSync(password, 8)
         const user = new User({username, password: hashed});
         await user.save();
@@ -37,7 +33,7 @@ const login = async (req, res) => {
         const user = await User.findOne({ username });
         if (user && bcrypt.compareSync(password, user.password)) {
             const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT, { expiresIn: '5d' });
-            res.cookie('token', token, { httpOnly: true });
+            res.cookie('token', token);
             res.json({ status: 'success', msg: 'Login successful', user: { id: user._id, username: user.username } });
         } else {
             res.status(401).json({ status: 'error', msg: 'Invalid credentials' });
